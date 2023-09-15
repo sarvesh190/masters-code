@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <style>
+        /* Add your custom CSS styles here to make the page attractive */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:#008080                                                         ;
+        }                                                
+        header {
+            background-color:#6F8FAF;
+            color: #fff;
+            padding:10px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:#F08080;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 40px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Registration</h1>
+    </header>
+    <main>
+        <form id="registrationForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            
+            <label for="primaryContact">Primary Contact:</label>
+            <input type="text" id="primaryContact" required>
+            
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="eventType">Type of Events to Participate:</label>
+            <select id="eventType" required>
+                <option value="workshop">Workshop</option>
+                <option value="conference">Conference</option>
+                <option value="seminar">Seminar</option>
+                <!-- Add more options as needed -->
+            </select>
+            
+            <label>Gender:</label>
+            <input type="radio" name="gender" id="male" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="female" value="female" required>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="other" value="other" required>
+            <label for="other">Other</label>
+            
+            <label for="ageGroup">Age Group:</label>
+            <select id="ageGroup" required>
+                <option value="under18">Under 18</option>
+                <option value="18to25">18 to 25</option>
+                <option value="26to35">26 to 35</option>
+                <option value="36to50">36 to 50</option>
+                <option value="over50">Over 50</option>
+            </select>
+            
+            <label for="termsAndConditions">
+                <input type="checkbox" id="termsAndConditions" required>
+                I agree to the Terms and Conditions
+            </label>
+            
+            <button type="submit">Register</button>
+        </form>
+    </main>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Retrieve form field values
+            const name = document.getElementById("name").value;
+            const primaryContact = document.getElementById("primaryContact").value;
+            const address = document.getElementById("address").value;
+            const email = document.getElementById("email").value;
+            const eventType = document.getElementById("eventType").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const ageGroup = document.getElementById("ageGroup").value;
+            const termsAndConditions = document.getElementById("termsAndConditions").checked;
+            
+            // Perform any actions you want with the form data here.
+            
+            // Display the "Registered" alert
+            alert("Registered");
+            
+            // You can also reset the form fields after submission (optional)
+            document.getElementById("registrationForm").reset();
+        });
+    </script>
+</body>
+</html>
